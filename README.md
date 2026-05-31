@@ -86,6 +86,8 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 
 ## Quick Start / 빠른 시작
 
+진짜 빠른 루트: [코덱스에게 그냥 무지성으로 알아서 해달라고 시키기]
+
 1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
    `Set-Location "C:\Users\PKreset\Documents\Telegram-OpenAPI\public-release"`
 2. (Optional) install dependencies / 의존성 설치: `npm install`
