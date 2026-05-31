@@ -73,6 +73,15 @@ OPENAI_USAGE_TIER_BAND=
 OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 ```
 
+## Preflight Checklist / 설치 전 체크리스트
+
+- Node.js 20+ installed  
+  Node.js 20 이상 설치 확인  
+- BotFather에서 Telegram 봇 토큰 준비  
+- OpenAI API 키 / OpenAI 관리자 키 준비  
+- `.env.local` 파일 직접 작성 완료  
+- `npm run check`와 `npm run test:safety` 통과
+
 ## Commands / 명령
 
 - `/hi question` : Advanced model + web search / 고급 모델 + 웹 검색  
@@ -112,6 +121,17 @@ npm run bot:restart
 - `docs/telegram-bot/architecture.md`  
 - `docs/telegram-bot/operations.md`  
 - `docs/openai-data-sharing-free-token-limits.md`
+
+## GitHub Repo Polish / GitHub 저장소 다듬기
+
+- On GitHub repo page: `Settings` → `General`  
+  - Description: "Telegram bot (Responses API) with hi/lo/ez commands and usage checks."  
+  - 이모지/짧은 요약 한 줄 정도로 간단히 작성
+- `Settings` → `General` → `Features`  
+  - Wiki/Discussions 필요 시만 켜기
+- `Settings` → `General` → `Topics`  
+  - 추천 태그: `telegram`, `telegram-bot`, `openai-api`, `nodejs`
+- README 상단 제목/링크는 변경 없이 그대로 두고, 필요하면 설치 난이도 1줄 추가
 
 ## For Codex / Codex 시작 문구
 
