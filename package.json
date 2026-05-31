@@ -1,0 +1,23 @@
+{
+  "name": "telegram-gpt-api-bot",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Telegram /hi and /lo bot powered by OpenAI Responses API web search.",
+  "scripts": {
+    "start": "node src/bot.mjs",
+    "check": "node --check src/bot.mjs",
+    "test:safety": "node scripts/test-telegram-safety.mjs",
+    "bot:status": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/status-bot.ps1",
+    "bot:restart": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restart-bot.ps1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "grammy": "^1.33.0",
+    "openai": "^4.104.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

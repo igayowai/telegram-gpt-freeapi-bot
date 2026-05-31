@@ -1,0 +1,5 @@
+이 폴더는 로컬 폴링 방식 Telegram GPT API 봇 프로젝트임.
+README.md를 기준으로 설치와 실행을 도와줘.
+.env.local.example을 복사해서 .env.local을 만들되, API 키와 Telegram 봇 토큰은 내가 로컬 파일에 직접 입력하게 안내해줘.
+채팅에 비밀값을 출력하지 말고, npm install, npm run check, npm run test:safety 순서로 확인한 뒤 실행 방법을 안내해줘.
+Windows 환경이면 npm run bot:status와 npm run bot:restart도 사용해줘.
