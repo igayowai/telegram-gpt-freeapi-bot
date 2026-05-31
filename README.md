@@ -155,9 +155,12 @@ TELEGRAM_OWNER_USER_ID=
 TELEGRAM_BOT_ID=
 OPENAI_MODEL=gpt-5.4-mini
 OPENAI_ADVANCED_MODEL=gpt-5.5
+# 운영 안정성 위해 가능하면 날짜가 있는 pinned model id로 설정:
+# OPENAI_MODEL=gpt-5.4-mini-YYYY-MM-DD
+# OPENAI_ADVANCED_MODEL=gpt-5.5-YYYY-MM-DD
 OPENAI_USAGE_TIER_BAND=
 OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
-```
+``` 
 
 ## Preflight Checklist / 설치 전 체크리스트
 
@@ -176,7 +179,7 @@ OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 - `/free`, `/usage`, `/limits` : Usage summary / 사용량 요약  
   - Complimentary token remaining / 당일 무료토큰 잔여량 + 당월 사용 상태 중심 요약  
   - 봇의 한도 보호 로직이 바로 참조하는 운영 지표용임.
-- `/costs` : DM-only cost summary / DM 전용 비용 요약  
+- `/costs` : DM-only cost summary with KRW estimate / DM 전용 비용 요약 및 원화 환산  
   - 최근 30일 API 과금 합계만 조회함.  
   - `/free`와 달리 당일/당월 잔여 추정치가 아닌 과금 이력 요약임.
 - `/helpai` : Help / 도움말  
