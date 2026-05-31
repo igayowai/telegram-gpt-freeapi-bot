@@ -22,6 +22,28 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 - OpenAI admin key (needed for `/free`, `/usage`, `/limits`, `/costs`)
 - Node.js 20 이상, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
 
+## OpenAI Platform Setup / OpenAI 플랫폼 초보자 설정
+
+1. OpenAI 플랫폼 로그인: https://platform.openai.com/overview
+2. 결제/국가/전화 인증을 완료한다 (필요 시 카드 등록, 결제 한도 정책 확인).
+3. Organization(조직)을 확인한다.
+   - 처음엔 기본 조직이 하나 만들어져 있음.
+   - 필요하면 `Organization settings`에서 이름만 변경.
+4. Project(프로젝트) 만들기:
+   - 왼쪽 메뉴 `Projects` → `Create` 또는 `New project`  
+   - 이름만 입력하고 생성.
+5. API 키 발급:
+   - Project 또는 Organization의 `API keys` 화면으로 이동
+   - `Create new secret key` 클릭
+   - 키 이름 입력 후 생성, 발급 직후 1회만 표시되므로 즉시 `.env.local` 입력 준비
+6. `.env.local`에 입력:
+   - `OPENAI_API_KEY`에 사용할 키 저장
+   - `/free`, `/usage`, `/limits`, `/costs`는 `OPENAI_ADMIN_KEY` 필요(같은 키를 사용해도 됨)
+7. 데이터 공유/보관 설정(선택):
+   - 기본은 API 학습 미사용(추가 동의 시 사용)임.  
+   - 조직 승인 대상이면 `Settings → Organization → Data controls`에서 retention 옵션 확인.
+   - 없으면 해당 메뉴가 비활성일 수 있음(계정·요금제·승인 상태 의존).
+
 ## Quick Start / 빠른 시작
 
 1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
