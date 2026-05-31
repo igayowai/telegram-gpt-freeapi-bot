@@ -14,6 +14,10 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 - `/helpai` help command, command safety checks, and safe Telegram error behavior.  
   `/helpai`, 안전성 체크, Telegram 오류 대응을 포함합니다.
 
+기본적으로 `/hi`는 `OPENAI_ADVANCED_MODEL`(기본: `gpt-5.5`)을 사용하고, `/lo`와 `/ez`는 `OPENAI_MODEL`(기본: `gpt-5.4-mini`)을 사용함.  
+`OPENAI_ADVANCED_MODEL`은 `gpt-5.5` 등 고성능 계열이라 추론 정밀도와 검색 품질이 높은 반면, `OPENAI_MODEL`은 `gpt-5.4-mini` 계열이라 무료/공유 한도와 응답 속도 측면에서 가볍게 운용됨.  
+무료 API 공식 사용량은 https://platform.openai.com/docs/guides/rate-limits/usage-tiers 기준으로 티어별로 제한이 다르며, 실제 사용 모델이 속한 티어/모델군은 `docs/openai-data-sharing-free-token-limits.md`에서 매칭 확인 가능함.
+
 ## Requirements / 준비물
 
 - Node.js 20+  
@@ -116,7 +120,7 @@ Group mention example / 그룹 언급 예시:
   토큰당 폴러는 1개만 실행하고, `401 Unauthorized` 발생 시 기존 프로세스 종료 후 토큰 갱신 후 1회만 재시작.
 - Do not commit secrets. `.env.local`, logs, `node_modules` are ignored / 비밀값 커밋 금지. `.env.local`/로그/`node_modules`는 `.gitignore`로 제외됨.
 
-## Memory / 메모리
+## Memory (컨텍스트)
 
 Only the previous successful Q&A is kept per chat/user.  
 채팅/유저별로 직전 성공 Q&A 1개만 메모리에 보관됨.
