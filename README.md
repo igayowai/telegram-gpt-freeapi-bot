@@ -32,7 +32,9 @@ Local polling Telegram bot powered by OpenAI Responses API.
 
 ### 한도와 모델군 매핑
 
-- 공식 complimentary token 한도는 [OpenAI data sharing help](https://help.openai.com/en/articles/10306912) 기준이며, [OpenAI Usage Tiers](https://platform.openai.com/docs/guides/rate-limits/usage-tiers)에 따라 티어별 제한이 달라짐.
+- 데이터 공유 complimentary token 한도/대상 모델군은 [OpenAI data sharing help](https://help.openai.com/en/articles/10306912) 기준으로 확인함.
+- 모델별 Free/Tier rate limit 표는 [OpenAI model comparison](https://platform.openai.com/docs/models/compare)에서 확인 가능함.
+- 내 Organization에 실제 적용된 rate/usage limits는 로그인 후 [OpenAI organization limits](https://platform.openai.com/settings/organization/limits)에서 확인 가능함.
 - 프로젝트에서 실제로 사용되는 모델군은 [docs/openai-data-sharing-free-token-limits.md](docs/openai-data-sharing-free-token-limits.md)에서 확인 가능함.
 - 웹 검색 같은 tool use는 complimentary token 대상이 아니며 별도 과금될 수 있음.
 

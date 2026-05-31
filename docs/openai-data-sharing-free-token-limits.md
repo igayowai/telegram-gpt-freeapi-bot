@@ -3,6 +3,12 @@
 Source: https://help.openai.com/en/articles/10306912
 Checked: 2026-05-31 Asia/Seoul
 
+Related official pages:
+
+- Model-specific Free/Tier rate limit table: https://platform.openai.com/docs/models/compare
+- Organization-specific applied limits dashboard: https://platform.openai.com/settings/organization/limits
+- General rate-limit behavior and usage-tier definitions: https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+
 ## Eligibility
 
 - Data sharing must be enabled for API inputs and outputs.
