@@ -47,7 +47,7 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 - PowerShell 7.x (Windows 10/11 기본 PowerShell도 가능하나, 7.x 권장)
 - Telegram bot token (from BotFather)  
 - OpenAI API key  
-- OpenAI admin key (`OPENAI_ADMIN_KEY`, same key as `OPENAI_API_KEY` if separate key가 없음)
+- OpenAI admin key (`OPENAI_ADMIN_KEY`, starts with `sk-admin-`)
 - Node.js 20 이상, Git, PowerShell, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
 
 ### 설치 방법
@@ -78,15 +78,31 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 4. Project(프로젝트) 만들기:
    - 왼쪽 메뉴 `Projects` → `Create` 또는 `New project`  
    - 이름만 입력하고 생성.
-5. API 키 발급:
-   - Project 또는 Organization의 `API keys` 화면으로 이동
-   - `Create new secret key` 클릭
-   - 키 이름 입력 후 생성, 발급 직후 1회만 표시되므로 즉시 `.env.local` 입력 준비
-6. `.env.local`에 입력:
+5. 일반 API 키 발급 (`OPENAI_API_KEY`):
+   - 경로: https://platform.openai.com/api-keys
+   - 또는 OpenAI Platform 왼쪽 메뉴 `API keys` → `Create new secret key`
+   - Project를 선택하고 키 이름 입력 후 생성
+   - 생성 직후 1회만 원문이 보이므로 바로 `.env.local` 입력 준비
+6. Admin API 키 발급 (`OPENAI_ADMIN_KEY`):
+   - 경로: https://platform.openai.com/settings/organization/admin-keys
+   - 또는 OpenAI Platform 왼쪽 메뉴 `Settings` → `Organization` → `Admin keys`
+   - `Create admin key` 또는 `Create new admin key` 클릭
+   - 이름 예시: `telegram-gpt-freeapi-bot-usage`
+   - 생성 직후 1회만 원문이 보이므로 바로 복사
+   - Admin API key는 보통 `sk-admin-`으로 시작함
+   - 이 키는 Organization Owner만 생성/사용 가능함
+   - `Admin keys` 메뉴가 안 보이면 현재 계정이 Organization Owner가 아니거나 다른 Organization을 보고 있는 상태일 수 있음
+   - 공식 문서: https://platform.openai.com/docs/api-reference/admin-api-keys/listget
+7. `.env.local`에 입력:
    - `OPENAI_API_KEY`에 사용할 키 저장
-   - `/free`, `/usage`, `/limits`, `/costs`는 `OPENAI_ADMIN_KEY`가 필요함  
-   - OpenAI에서 admin 키 전용 발급 UI가 보이지 않으면 `OPENAI_ADMIN_KEY`에 `OPENAI_API_KEY` 값을 그대로 복사해서 사용하면 됨
-7. 데이터 공유/보관 설정(선택):
+   - `OPENAI_ADMIN_KEY`에 `sk-admin-...` 형태의 Admin API key 저장
+   - `/free`, `/usage`, `/limits`, `/costs`는 OpenAI Usage/Costs API를 조회하므로 `OPENAI_ADMIN_KEY`가 필요함
+   - Admin API key는 일반 답변 생성용 API 호출에는 쓰지 않음
+8. Admin key 확인:
+   - 값 형태 확인: `OPENAI_ADMIN_KEY`가 `sk-admin-`으로 시작해야 함
+   - 봇 실행 후 Telegram에서 `/free` 또는 `/usage` 전송
+   - `OpenAI Admin Key 인증 실패`가 나오면 Organization/권한/키 복사 상태를 다시 확인
+9. 데이터 공유/보관 설정(선택):
    - 기본은 API 학습 미사용(추가 동의 시 사용)임.  
    - 조직 승인 대상이면 `Settings → Organization → Data controls`에서 retention 옵션 확인.
    - 없으면 해당 메뉴가 비활성일 수 있음(계정·요금제·승인 상태 의존).
@@ -144,7 +160,7 @@ OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 - Node.js 20+ installed  
   Node.js 20 이상 설치 확인  
 - BotFather에서 Telegram 봇 토큰 준비  
-- OpenAI API 키 / OpenAI 관리자 키 준비 (`OPENAI_ADMIN_KEY`는 보통 `OPENAI_API_KEY`와 동일 가능)  
+- OpenAI API 키 / OpenAI Admin API key 준비 (`OPENAI_ADMIN_KEY`는 `sk-admin-`으로 시작)  
 - `.env.local` 파일 직접 작성 완료  
 - `npm run check`와 `npm run test:safety` 통과
 
