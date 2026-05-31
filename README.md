@@ -14,8 +14,8 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 
 ### 모델 정책
 
-- `/hi`: `OPENAI_ADVANCED_MODEL` 사용 (기본값 `gpt-5.5`)
-- `/lo`, `/ez`: `OPENAI_MODEL` 사용 (기본값 `gpt-5.4-mini`)
+- `/hi`: gpt-5.5 (고수준 모델 한도에서 쌀먹가능한 최고의 모델)
+- `/lo`, `/ez`: gpt-5.4-mini (저수준 모델 한도에서 쌀먹가능한 최고의 모델)
 
 ### 왜 이렇게 나뉨
 
