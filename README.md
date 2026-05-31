@@ -17,6 +17,8 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 기본적으로 `/hi`는 `OPENAI_ADVANCED_MODEL`(기본: `gpt-5.5`)을 사용하고, `/lo`와 `/ez`는 `OPENAI_MODEL`(기본: `gpt-5.4-mini`)을 사용함.  
 `OPENAI_ADVANCED_MODEL`은 `gpt-5.5` 등 고성능 계열이라 추론 정밀도와 검색 품질이 높은 반면, `OPENAI_MODEL`은 `gpt-5.4-mini` 계열이라 무료/공유 한도와 응답 속도 측면에서 가볍게 운용됨.  
 무료 API 공식 사용량은 https://platform.openai.com/docs/guides/rate-limits/usage-tiers 기준으로 티어별로 제한이 다르며, 실제 사용 모델이 속한 티어/모델군은 `docs/openai-data-sharing-free-token-limits.md`에서 매칭 확인 가능함.
+동일 한도 범위 내에서 같은 계열보다 효율·성능이 개선된 새 모델이 공개되면 비용 구조가 바뀌지 않는 선에서 스위치할 수 있음.  
+신규 모델/한도 정책은 공식 문서를 주기적으로 확인하고, 필요하면 내가 직접 `.env.local`의 `OPENAI_MODEL`, `OPENAI_ADVANCED_MODEL` 값도 업데이트해줄 수 있음.
 
 ## Requirements / 준비물
 
