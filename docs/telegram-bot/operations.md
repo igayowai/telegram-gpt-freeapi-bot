@@ -85,7 +85,7 @@ npm run bot:status
 
 - polling, not webhook
 - pending updates are dropped on startup
-- no conversation memory
+- one previous successful Q&A is kept only in process memory per chat/user
 - group ordinary messages ignored
 - slash commands accepted with and without bot username mention
 - `/free` allowed in DM/groups/channels

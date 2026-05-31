@@ -1,22 +1,24 @@
 # OpenAI data sharing complimentary token limits
 
 Source: https://help.openai.com/en/articles/10306912
-Checked: 2026-05-28 Asia/Seoul
+Checked: 2026-05-31 Asia/Seoul
 
 ## Eligibility
 
 - Data sharing must be enabled for API inputs and outputs.
 - The organization must be eligible and enrolled for complimentary daily tokens.
+- Only Organization Owners can toggle the data sharing setting.
 - Only traffic on enabled projects qualifies.
 - A positive account balance is still required.
-- Free token usage appears in Usage grouped by Service Tier as `data sharing incentive tier - input/output tokens`.
+- Usage Dashboard label: `data sharing incentive tier - input/output tokens`.
+- Bot Admin Usage API filter: `service_tier === "incentivized-tier"`.
 
 ## Daily limits
 
 | Group | Usage tiers 3-5 | Usage tiers 1-2 | Shared models |
 | --- | ---: | ---: | --- |
-| Large model group | 1,000,000 tokens/day | 250,000 tokens/day | `gpt-5.5-2026-04-23`, `gpt-5.4-2026-03-05`, `gpt-5.2-2025-12-11`, `gpt-5.1-2025-11-13`, `gpt-5.1-codex`, `gpt-5-codex`, `gpt-5-2025-08-07`, `gpt-5-chat-latest`, `gpt-4.5-preview-2025-02-27`, `gpt-4.1-2025-04-14`, `gpt-4o-2024-05-13`, `gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`, `o3-2025-04-16`, `o1-preview-2024-09-12`, `o1-2024-12-17` |
-| Mini/nano model group | 10,000,000 tokens/day | 2,500,000 tokens/day | `gpt-5.4-mini-2026-03-17`, `gpt-5.4-nano-2026-03-17`, `gpt-5.1-codex-mini`, `gpt-5-nano-2025-08-07`, `gpt-4.1-mini-2025-04-14`, `gpt-4.1-nano-2025-04-14`, `gpt-4o-mini-2024-07-18`, `o4-mini-2025-04-16`, `o1-mini-2024-09-12`, `codex-mini-latest` |
+| Large model group | 1,000,000 tokens/day | 250,000 tokens/day | `gpt-5.5-2026-04-23`, `gpt-5.4-2026-03-05`, `gpt-5.2-2025-12-11`, `gpt-5.1-2025-11-13`, `gpt-5.1-codex`, `gpt-5-codex`, `gpt-5-2025-08-07`, `gpt-5-chat-latest`, `gpt-4.5-preview-2025-02-27` (deprecated/shut down as of 2025-07-14), `gpt-4.1-2025-04-14`, `gpt-4o-2024-05-13`, `gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`, `o3-2025-04-16`, `o1-preview-2024-09-12`, `o1-2024-12-17` |
+| Mini/nano model group | 10,000,000 tokens/day | 2,500,000 tokens/day | `gpt-5.4-mini-2026-03-17`, `gpt-5.4-nano-2026-03-17`, `gpt-5.1-codex-mini`, `gpt-5-mini-2025-08-07`, `gpt-5-nano-2025-08-07`, `gpt-4.1-mini-2025-04-14`, `gpt-4.1-nano-2025-04-14`, `gpt-4o-mini-2024-07-18`, `o4-mini-2025-04-16`, `o1-mini-2024-09-12`, `codex-mini-latest` |
 
 ## Counting rules
 

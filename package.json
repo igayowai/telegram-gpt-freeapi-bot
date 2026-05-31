@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
-  "description": "Telegram /hi and /lo bot powered by OpenAI Responses API web search.",
+  "description": "Telegram bot powered by OpenAI Responses API with hi/lo/ez commands, web search, and usage checks.",
   "scripts": {
     "start": "node src/bot.mjs",
     "check": "node --check src/bot.mjs",
@@ -17,7 +17,7 @@
     "openai": "^4.104.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }
 

@@ -1,7 +1,7 @@
 # Telegram GPT API Bot / 텔레그램 GPT API 봇
 
 Local polling Telegram bot powered by OpenAI Responses API.  
-OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료 사용량이 제공될 수 있는 OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
+일부 OpenAI API 조직은 데이터 공유를 켜면 매일 정해진 양의 complimentary token을 받을 수 있음. 이 봇은 그 한도를 확인하면서 OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇임.
 
 ## What this project is / 이 프로젝트는 무엇?
 
@@ -32,8 +32,9 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 
 ### 한도와 모델군 매핑
 
-- 공식 무료 API 한도는 [OpenAI Usage Tiers](https://platform.openai.com/docs/guides/rate-limits/usage-tiers) 기준으로 티어별 제한이 달라짐.
+- 공식 complimentary token 한도는 [OpenAI data sharing help](https://help.openai.com/en/articles/10306912) 기준이며, [OpenAI Usage Tiers](https://platform.openai.com/docs/guides/rate-limits/usage-tiers)에 따라 티어별 제한이 달라짐.
 - 프로젝트에서 실제로 사용되는 모델군은 [docs/openai-data-sharing-free-token-limits.md](docs/openai-data-sharing-free-token-limits.md)에서 확인 가능함.
+- 웹 검색 같은 tool use는 complimentary token 대상이 아니며 별도 과금될 수 있음.
 
 ### 모델 업데이트 운영 가이드
 
@@ -42,25 +43,25 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 
 ## Requirements / 준비물
 
-- Node.js 20+  
+- Node.js 22+ (Node.js 24 LTS 권장)
 - Git  
 - PowerShell 7.x (Windows 10/11 기본 PowerShell도 가능하나, 7.x 권장)
 - Telegram bot token (from BotFather)  
 - OpenAI API key  
 - OpenAI admin key (`OPENAI_ADMIN_KEY`, starts with `sk-admin-`)
-- Node.js 20 이상, Git, PowerShell, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
+- Node.js 22 이상, Git, PowerShell, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
 
 ### 설치 방법
 
 1. 코덱스에게 알아서 해달라고 맡기기 (권장)  
    아래 한 줄을 그대로 입력:
-   `public-release 폴더 기준으로 Git과 Node.js 20 LTS 설치 유무를 확인하고, 없다면 설치 가이드까지 포함해 의존성 설치와 실행 체크까지 진행해줘.`
+   `public-release 폴더 기준으로 Git과 Node.js 24 LTS 설치 유무를 확인하고, 없다면 설치 가이드까지 포함해 의존성 설치와 실행 체크까지 진행해줘.`
 
 2. 직접 설치하기
    1. Git 설치  
       `winget install --id Git.Git -e --source winget`  
       (또는 https://git-scm.com/download/win 에서 설치)
-   2. Node.js 20 LTS 설치  
+   2. Node.js LTS 설치
       `winget install OpenJS.NodeJS.LTS -e --source winget`  
       (또는 https://nodejs.org/ko/download/ 에서 LTS 설치)
    3. PowerShell 7 설치(없으면)  
@@ -104,21 +105,22 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
    - `OpenAI Admin Key 인증 실패`가 나오면 Organization/권한/키 복사 상태를 다시 확인
 9. 데이터 공유/보관 설정(선택):
    - 기본은 API 학습 미사용(추가 동의 시 사용)임.  
-   - 조직 승인 대상이면 `Settings → Organization → Data controls`에서 retention 옵션 확인.
+   - 경로: https://platform.openai.com/settings/organization/data-controls
+   - 조직 승인 대상이면 `Settings` → `Organization` → `Data controls`에서 retention 옵션 확인.
    - 없으면 해당 메뉴가 비활성일 수 있음(계정·요금제·승인 상태 의존).
 
 ## BotFather Fast Setup / BotFather 빠른 생성법
 
 1. Telegram에서 `@BotFather` 검색 후 `Start`  
-2. `\newbot` 입력  
+2. `/newbot` 입력
 3. Bot name 입력 (예: `My GPT Bot`)  
-4. Bot username 입력 (반드시 `...bot` 또는 `..._bot`로 끝남)  
+4. Bot username 입력 (일반 봇 username은 보통 `...bot` 또는 `..._bot` 같은 bot suffix 필요)
 5. 안내되는 API 토큰 복사  
 6. `.env.local`의 `TELEGRAM_BOT_TOKEN`에 붙여넣고 실행  
 7. Telegram에서 봇 열기 후 `/start` 전송으로 동작 확인
-8. `@BotFather`로 돌아가 `\setcommands`로 사용 설명 명령 등록(선택)
+8. `@BotFather`로 돌아가 `/setcommands`로 사용 설명 명령 등록(선택)
    - 예: `hi - 질문 답변 (웹 검색)`, `lo - 빠른 답변 (웹 검색)`, `ez - 빠른 답변`, `helpai - 도움말`
-9. 토큰 분실/유출 시 `@BotFather`에서 해당 봇을 열고 `Revoke`(재생성) 처리
+9. 토큰 분실/유출 시 `@BotFather`에서 `/revoke`로 토큰 재생성
 10. 토큰은 절대 채팅에 공유하지 않음
 
 ## Quick Start / 빠른 시작
@@ -128,8 +130,8 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
    `public-release 폴더 기준으로 의존성 설치, .env.local 준비, 봇 실행까지 한 번에 진행해줘.`
 
 2. 기존 수동 루트 (직접 하기)
-1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
-   `Set-Location "C:\Users\(님윈도우사용자이름)\Documents\Telegram-OpenAPI\public-release"`
+   1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동
+      `Set-Location "C:\Users\(님윈도우사용자이름)\Documents\Telegram-OpenAPI\public-release"`
    2. (Optional) install dependencies / 의존성 설치: `npm install`
    3. Copy template env file / 환경설정 템플릿 복사  
       `Copy-Item .env.local.example .env.local`
@@ -157,8 +159,8 @@ OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 
 ## Preflight Checklist / 설치 전 체크리스트
 
-- Node.js 20+ installed  
-  Node.js 20 이상 설치 확인  
+- Node.js 22+ installed (Node.js 24 LTS recommended)
+  Node.js 22 이상 설치 확인, Node.js 24 LTS 권장
 - BotFather에서 Telegram 봇 토큰 준비  
 - OpenAI API 키 / OpenAI Admin API key 준비 (`OPENAI_ADMIN_KEY`는 `sk-admin-`으로 시작)  
 - `.env.local` 파일 직접 작성 완료  
@@ -207,7 +209,7 @@ npm run bot:restart
 ## GitHub Repo Polish / GitHub 저장소 다듬기
 
 - On GitHub repo page: `Settings` → `General`  
-  - Description: "Telegram bot (Responses API) with hi/lo/ez commands and usage checks."  
+  - Description: "Telegram bot with OpenAI Responses API, hi/lo/ez commands, web search, and usage checks."
   - 이모지/짧은 요약 한 줄 정도로 간단히 작성
 - `Settings` → `General` → `Features`  
   - Wiki/Discussions 필요 시만 켜기
@@ -217,7 +219,7 @@ npm run bot:restart
 
 ## For Codex / Codex 시작 문구
 
-- Use the standalone prompt file: [CODEX_START_PROMPT.txt](C:\\Users\\PKreset\\Documents\\Telegram-OpenAPI\\public-release\\CODEX_START_PROMPT.txt)
+- Use the standalone prompt file: [CODEX_START_PROMPT.txt](CODEX_START_PROMPT.txt)
 
 ## License / 라이선스
 

@@ -47,7 +47,7 @@ Every answer request includes a compact style prompt:
 
 ## Usage And Guard Logic
 
-`/free` uses the OpenAI organization usage/cost endpoints through `OPENAI_ADMIN_KEY`.
+`/free`, `/usage`, `/limits`, and `/costs` use the OpenAI organization usage/cost endpoints through `OPENAI_ADMIN_KEY`.
 
 Daily free-token logic:
 
@@ -55,6 +55,7 @@ Daily free-token logic:
 - display timezone: KST
 - service tier counted as free: `incentivized-tier`
 - usage count: input plus output tokens
+- web search/tool usage is not counted as complimentary token usage and may be billed separately
 - model groups:
   - large group: `gpt-5.5`
   - mini/nano group: `gpt-5.4-mini`
