@@ -43,10 +43,30 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 ## Requirements / 준비물
 
 - Node.js 20+  
+- Git  
+- PowerShell 7.x (Windows 10/11 기본 PowerShell도 가능하나, 7.x 권장)
 - Telegram bot token (from BotFather)  
 - OpenAI API key  
 - OpenAI admin key (needed for `/free`, `/usage`, `/limits`, `/costs`)
-- Node.js 20 이상, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
+- Node.js 20 이상, Git, PowerShell, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
+
+### 설치 방법
+
+1. 코덱스에게 알아서 해달라고 맡기기 (권장)  
+   아래 한 줄을 그대로 입력:
+   `public-release 폴더 기준으로 Git과 Node.js 20 LTS 설치 유무를 확인하고, 없다면 설치 가이드까지 포함해 의존성 설치와 실행 체크까지 진행해줘.`
+
+2. 직접 설치하기
+   1. Git 설치  
+      `winget install --id Git.Git -e --source winget`  
+      (또는 https://git-scm.com/download/win 에서 설치)
+   2. Node.js 20 LTS 설치  
+      `winget install OpenJS.NodeJS.LTS -e --source winget`  
+      (또는 https://nodejs.org/ko/download/ 에서 LTS 설치)
+   3. PowerShell 7 설치(없으면)  
+      `winget install Microsoft.PowerShell -e --source winget`
+   4. 설치 확인  
+      `git --version`, `node --version`, `npm --version`
 
 ## OpenAI Platform Setup / OpenAI 플랫폼 초보자 설정
 
