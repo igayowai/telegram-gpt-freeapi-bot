@@ -1,7 +1,7 @@
 # Telegram GPT API Bot / 텔레그램 GPT API 봇
 
 Local polling Telegram bot powered by OpenAI Responses API.  
-OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
+OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료 사용량이 제공될 수 있는 OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 
 ## What this project is / 이 프로젝트는 무엇?
 
