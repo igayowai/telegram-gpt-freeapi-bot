@@ -91,8 +91,8 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
    `public-release 폴더 기준으로 의존성 설치, .env.local 준비, 봇 실행까지 한 번에 진행해줘.`
 
 2. 기존 수동 루트 (직접 하기)
-   1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
-      `Set-Location "C:\Users\PKreset\Documents\Telegram-OpenAPI\public-release"`
+1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
+   `Set-Location "C:\Users\(님윈도우사용자이름)\Documents\Telegram-OpenAPI\public-release"`
    2. (Optional) install dependencies / 의존성 설치: `npm install`
    3. Copy template env file / 환경설정 템플릿 복사  
       `Copy-Item .env.local.example .env.local`

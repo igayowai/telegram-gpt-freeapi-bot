@@ -1,6 +1,6 @@
 이 폴더는 로컬 폴링 방식 Telegram GPT API 봇 프로젝트임.
 README.md의 Quick Start(빠른 시작)와 "OpenAI Platform Setup" 섹션을 보고, 초보자용으로 한 단계씩 진행하게 도와줘.
-1) `C:\Users\PKreset\Documents\Telegram-OpenAPI\public-release`로 이동한 뒤
+1) `C:\Users\(님윈도우사용자이름)\Documents\Telegram-OpenAPI\public-release`로 이동한 뒤
 2) `Copy-Item .env.local.example .env.local`로 복사,
 3) `.env.local`은 화면에 키를 직접 붙여넣지 않고 내가 직접 입력하게 안내,
 4) `npm install` → `npm run check` → `npm run test:safety` → `npm start` 순서로 확인,
