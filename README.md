@@ -44,6 +44,20 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
    - 조직 승인 대상이면 `Settings → Organization → Data controls`에서 retention 옵션 확인.
    - 없으면 해당 메뉴가 비활성일 수 있음(계정·요금제·승인 상태 의존).
 
+## BotFather Fast Setup / BotFather 빠른 생성법
+
+1. Telegram에서 `@BotFather` 검색 후 `Start`  
+2. `\newbot` 입력  
+3. Bot name 입력 (예: `My GPT Bot`)  
+4. Bot username 입력 (반드시 `...bot` 또는 `..._bot`로 끝남)  
+5. 안내되는 API 토큰 복사  
+6. `.env.local`의 `TELEGRAM_BOT_TOKEN`에 붙여넣고 실행  
+7. Telegram에서 봇 열기 후 `/start` 전송으로 동작 확인
+8. `@BotFather`로 돌아가 `\setcommands`로 사용 설명 명령 등록(선택)
+   - 예: `hi - 질문 답변 (웹 검색)`, `lo - 빠른 답변 (웹 검색)`, `ez - 빠른 답변`, `helpai - 도움말`
+9. 토큰 분실/유출 시 `@BotFather`에서 해당 봇을 열고 `Revoke`(재생성) 처리
+10. 토큰은 절대 채팅에 공유하지 않음
+
 ## Quick Start / 빠른 시작
 
 1. Open terminal and go to folder / 터미널에서 프로젝트 폴더로 이동  
