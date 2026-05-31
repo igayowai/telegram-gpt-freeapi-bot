@@ -174,7 +174,11 @@ OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 - `/lo question` : Fast model + web search / 경량 모델 + 웹 검색  
 - `/ez question` : Fast model, no web search / 경량 모델, 검색 없음  
 - `/free`, `/usage`, `/limits` : Usage summary / 사용량 요약  
+  - Complimentary token remaining / 당일 무료토큰 잔여량 + 당월 사용 상태 중심 요약  
+  - 봇의 한도 보호 로직이 바로 참조하는 운영 지표용임.
 - `/costs` : DM-only cost summary / DM 전용 비용 요약  
+  - 최근 30일 API 과금 합계만 조회함.  
+  - `/free`와 달리 당일/당월 잔여 추정치가 아닌 과금 이력 요약임.
 - `/helpai` : Help / 도움말  
 - `/start` : Welcome message / 시작 메시지
 
