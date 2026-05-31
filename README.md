@@ -47,7 +47,7 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
 - PowerShell 7.x (Windows 10/11 기본 PowerShell도 가능하나, 7.x 권장)
 - Telegram bot token (from BotFather)  
 - OpenAI API key  
-- OpenAI admin key (needed for `/free`, `/usage`, `/limits`, `/costs`)
+- OpenAI admin key (`OPENAI_ADMIN_KEY`, same key as `OPENAI_API_KEY` if separate key가 없음)
 - Node.js 20 이상, Git, PowerShell, BotFather 봇 토큰, OpenAI API 키, 해당 요약 명령 사용 시 OpenAI 관리자 키 필요
 
 ### 설치 방법
@@ -84,7 +84,8 @@ OpenAI를 통해 데이터 공유를 대가로 매일 정해진 양만큼 무료
    - 키 이름 입력 후 생성, 발급 직후 1회만 표시되므로 즉시 `.env.local` 입력 준비
 6. `.env.local`에 입력:
    - `OPENAI_API_KEY`에 사용할 키 저장
-   - `/free`, `/usage`, `/limits`, `/costs`는 `OPENAI_ADMIN_KEY` 필요(같은 키를 사용해도 됨)
+   - `/free`, `/usage`, `/limits`, `/costs`는 `OPENAI_ADMIN_KEY`가 필요함  
+   - OpenAI에서 admin 키 전용 발급 UI가 보이지 않으면 `OPENAI_ADMIN_KEY`에 `OPENAI_API_KEY` 값을 그대로 복사해서 사용하면 됨
 7. 데이터 공유/보관 설정(선택):
    - 기본은 API 학습 미사용(추가 동의 시 사용)임.  
    - 조직 승인 대상이면 `Settings → Organization → Data controls`에서 retention 옵션 확인.
@@ -143,7 +144,7 @@ OPENAI_FREE_TOKEN_GUARD_RESERVE=50000
 - Node.js 20+ installed  
   Node.js 20 이상 설치 확인  
 - BotFather에서 Telegram 봇 토큰 준비  
-- OpenAI API 키 / OpenAI 관리자 키 준비  
+- OpenAI API 키 / OpenAI 관리자 키 준비 (`OPENAI_ADMIN_KEY`는 보통 `OPENAI_API_KEY`와 동일 가능)  
 - `.env.local` 파일 직접 작성 완료  
 - `npm run check`와 `npm run test:safety` 통과
 
