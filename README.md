@@ -5,20 +5,34 @@ OpenAI Responses API로 동작하는 로컬 폴링 방식 Telegram 봇입니다.
 
 ## What this project is / 이 프로젝트는 무엇?
 
-- High/low command modes (`/hi`, `/lo`) and no-web mode (`/ez`).  
-  고성능/경량 모드(`/hi`, `/lo`)와 검색 비사용 모드(`/ez`)를 제공합니다.
-- Auto web search for `/hi` and `/lo` and compact source formatting for answers.  
-  `/hi`, `/lo`에 자동 웹 검색이 붙고, 긴 URL은 짧은 출처 링크로 정리됩니다.
-- Usage summary commands (`/free`, `/usage`, `/limits`) and DM-only cost command (`/costs`).  
-  토큰/사용량 요약(`/free`, `/usage`, `/limits`)과 DM 전용 비용 요약(`/costs`)을 제공합니다.
-- `/helpai` help command, command safety checks, and safe Telegram error behavior.  
-  `/helpai`, 안전성 체크, Telegram 오류 대응을 포함합니다.
+텔레그램에서 텍스트 기반 AI 어시스턴트를 쓰기 위한 로컬 폴링 봇임.
 
-기본적으로 `/hi`는 `OPENAI_ADVANCED_MODEL`(기본: `gpt-5.5`)을 사용하고, `/lo`와 `/ez`는 `OPENAI_MODEL`(기본: `gpt-5.4-mini`)을 사용함.  
-`OPENAI_ADVANCED_MODEL`은 `gpt-5.5` 등 고성능 계열이라 추론 정밀도와 검색 품질이 높은 반면, `OPENAI_MODEL`은 `gpt-5.4-mini` 계열이라 무료/공유 한도와 응답 속도 측면에서 가볍게 운용됨.  
-무료 API 공식 사용량은 https://platform.openai.com/docs/guides/rate-limits/usage-tiers 기준으로 티어별로 제한이 다르며, 프로젝트에서 실제로 쓰는 모델군 매핑은 `docs/openai-data-sharing-free-token-limits.md`로 정리됨.
-동일 한도 범위 내에서 같은 계열보다 효율·성능이 개선된 새 모델이 공개되면 비용 구조가 바뀌지 않는 선에서 스위치할 수 있음.  
-신규 모델/한도 정책은 공식 문서를 주기적으로 확인하고, 필요하면 내가 직접 `.env.local`의 `OPENAI_MODEL`, `OPENAI_ADVANCED_MODEL` 값도 업데이트해줄 수 있음.
+- `/hi`, `/lo`, `/ez` 3가지 방식으로 동작함.
+- `/hi`, `/lo`는 질문에 대해 웹 검색을 자동 수행함.
+- `/free`, `/usage`, `/limits`, `/costs`로 사용량/비용을 확인할 수 있음.
+- `/helpai`로 사용법을 확인하고, 예외 상황은 안전하게 처리함.
+
+### 모델 정책
+
+- `/hi`: `OPENAI_ADVANCED_MODEL` 사용 (기본값 `gpt-5.5`)
+- `/lo`, `/ez`: `OPENAI_MODEL` 사용 (기본값 `gpt-5.4-mini`)
+
+### 왜 이렇게 나뉨
+
+- `OPENAI_ADVANCED_MODEL`: `gpt-5.5` 계열 고성능 라인.  
+  추론 정밀도와 검색 기반 응답 품질을 우선함.
+- `OPENAI_MODEL`: `gpt-5.4-mini` 계열 경량 라인.  
+  응답 속도, 사용량 효율, 운영 여유를 우선함.
+
+### 한도와 모델군 매핑
+
+- 공식 무료 API 한도는 [OpenAI Usage Tiers](https://platform.openai.com/docs/guides/rate-limits/usage-tiers) 기준으로 티어별 제한이 달라짐.
+- 프로젝트에서 실제로 사용되는 모델군은 [docs/openai-data-sharing-free-token-limits.md](docs/openai-data-sharing-free-token-limits.md)에서 확인 가능함.
+
+### 모델 업데이트 운영 가이드
+
+- 동일 한도 범위에서 같은 계열보다 성능·효율이 개선된 모델이 나오면 비용 구조가 같을 때 전환 가능함.
+- 신규 모델/한도 정책은 공식 문서를 주기적으로 확인하여 유저가 직접 업데이트하는 것을 추천함.
 
 ## Requirements / 준비물
 
